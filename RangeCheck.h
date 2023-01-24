@@ -1,2 +1,2 @@
-short drivenRangeCheck(const short* ArrData,short arrSize);
-void sortInAscending(int* ArrData, int arrSize);
+short drivenRangeCheck(short* ArrData,short arrSize);
+void sortInAscending(short* ArrData, short arrSize);

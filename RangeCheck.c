@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "RangeCheck.h"
 
-short drivenRangeCheck(const short* ArrData,short arrSize)
+short drivenRangeCheck(short* ArrData,short arrSize)
 {
     short i =0;
     short readRangeCnt =1;
@@ -17,7 +17,7 @@ short drivenRangeCheck(const short* ArrData,short arrSize)
     return readRangeCnt;
 }
 
-void sortInAscending(int* ArrData, int arrSize)
+void sortInAscending(short* ArrData, short arrSize)
 {
     int temp,i,j;
 
