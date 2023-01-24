@@ -3,7 +3,12 @@
 #include "test/catch.hpp"
 #include "RangeCheck.h"
 
-TEST_CASE("Range readings checking") {
+TEST_CASE("Range readings checking with 2 array of data") {
   short arrData[] = {4,5};
   REQUIRE(drivenRangeCheck(arrData,2) == 2);
+}
+
+TEST_CASE("Range readings checking with 4 array of data with misalign array data") {
+  short arrData[] = {3,5,4};
+  REQUIRE(drivenRangeCheck(arrData,3) == 3);
 }
