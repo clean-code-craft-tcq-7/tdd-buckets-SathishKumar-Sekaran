@@ -8,19 +8,19 @@ st_RangeCount drivenRangeCheck(short* ArrData,short arrSize)
     st_RangeCount readRangeCnt;
     sortInAscending(ArrData,arrSize);
     readRangeCnt.Count[j] = 1;
-    readRangeCnt.OutArray[i][j] = ArrData[i];
+    readRangeCnt.OutArray[j][i] = ArrData[i];
     while((i+1)<arrSize)
     {
         if(((ArrData[i]+1) == ArrData[i+1]) || ((ArrData[i]) == ArrData[i+1]))
         {
             readRangeCnt.Count[j] += 1;
-            readRangeCnt.OutArray[i][j] = ArrData[i+1];
+            readRangeCnt.OutArray[j][i+1] = ArrData[i+1];
         }
         else
         {
             j++;
             readRangeCnt.Count[j] = 1;
-            readRangeCnt.OutArray[i][j] = ArrData[i];
+            readRangeCnt.OutArray[j][i] = ArrData[i];
         }
         i++;
     }
