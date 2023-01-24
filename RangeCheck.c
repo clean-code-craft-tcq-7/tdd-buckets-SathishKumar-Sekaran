@@ -20,6 +20,7 @@ st_RangeCount drivenRangeCheck(short* ArrData,short arrSize)
         {
             j++;
             readRangeCnt.Count[j] = 1;
+            readRangeCnt.OutArray[i][j] = ArrData[i];
         }
         i++;
     }
