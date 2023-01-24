@@ -1,19 +1,29 @@
 #include <stdio.h>
 #include "RangeCheck.h"
 
-short drivenRangeCheck(short* ArrData,short arrSize)
+st_RangeCount drivenRangeCheck(short* ArrData,short arrSize)
 {
     short i =0;
-    short readRangeCnt =1;
+    short j =0;
+    st_RangeCount readRangeCnt;
     sortInAscending(ArrData,arrSize);
+    readRangeCnt.Count[j] = 1;
+    readRangeCnt.OutArray[i][j] = ArrData[i];
     while((i+1)<arrSize)
     {
         if(((ArrData[i]+1) == ArrData[i+1]) || ((ArrData[i]) == ArrData[i+1]))
         {
-            readRangeCnt++;
+            readRangeCnt.Count[j] += 1;
+            readRangeCnt.OutArray[i][j] = ArrData[i+1];
+        }
+        else
+        {
+            j++;
+            readRangeCnt.Count[j] = 1;
         }
         i++;
     }
+    readRangeCnt.countSize = j;
     return readRangeCnt;
 }
 
