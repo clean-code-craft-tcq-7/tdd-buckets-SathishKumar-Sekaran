@@ -8,7 +8,7 @@ short drivenRangeCheck(short* ArrData,short arrSize)
     sortInAscending(ArrData,arrSize);
     while((i+1)<arrSize)
     {
-        if((ArrData[i]+1) == ArrData[i+1])
+        if(((ArrData[i]+1) == ArrData[i+1]) || ((ArrData[i]) == ArrData[i+1]))
         {
             readRangeCnt++;
         }
