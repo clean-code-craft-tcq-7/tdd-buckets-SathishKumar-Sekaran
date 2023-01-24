@@ -4,15 +4,33 @@
 short drivenRangeCheck(const short* ArrData,short arrSize)
 {
     short i =0;
-    short j =1;
     short readRangeCnt =1;
-    while(j<arrSize)
+    sortInAscending(ArrData,arrSize);
+    while((i+1)<arrSize)
     {
-        if((ArrData[i]+1) == ArrData[j])
+        if((ArrData[i]+1) == ArrData[i+1])
         {
             readRangeCnt++;
         }
         i++;
-        j++;
+    }
+    return readRangeCnt;
+}
+
+void sortInAscending(int* ArrData, int arrSize)
+{
+    int temp,i,j;
+
+    for(i = 0; i < arrSize; i++)
+    {
+        for(j = i + 1; j < arrSize; j++)
+        {
+            if(ArrData[i] > ArrData[j])
+            {
+                temp = ArrData[i];
+                ArrData[i] = ArrData[j];
+                ArrData[j] = temp;
+            }
+        }
     }
 }
