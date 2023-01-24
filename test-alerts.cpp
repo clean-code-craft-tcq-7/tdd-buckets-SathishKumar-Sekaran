@@ -5,5 +5,5 @@
 
 TEST_CASE("Range readings checking") {
   short arrData[] = {4,5};
-  REQUIRE(drivenRangeCheck(arrData) == 2);
+  REQUIRE(drivenRangeCheck(arrData,2) == 2);
 }
