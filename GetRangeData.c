@@ -29,12 +29,12 @@ void ConvertRangeOutString(st_RangeCount readRangeData,char* strVal)
         memset(rangeInfo,0,20);
         if(readRangeData.Count[i] > 1)
         {
-            sprintf(rangeInfo,"%d-%d, %d\n", readRangeData.OutArray[0][0], 
-                            readRangeData.OutArray[0][readRangeData.Count[i]-1], readRangeData.Count[i]);
+            sprintf(rangeInfo,"%d-%d, %d\n", readRangeData.OutArray[i][0], 
+                            readRangeData.OutArray[i][readRangeData.Count[i]-1], readRangeData.Count[i]);
         }
         else
         {
-            sprintf(rangeInfo,"%d, %d\n", readRangeData.OutArray[0][0], readRangeData.Count[i]);
+            sprintf(rangeInfo,"%d, %d\n", readRangeData.OutArray[i][0], readRangeData.Count[i]);
         }
         strncpy(strVal,rangeInfo,strlen(rangeInfo));
         strVal += strlen(rangeInfo);
