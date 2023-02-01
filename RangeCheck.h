@@ -1,4 +1,5 @@
 
+#define HEADER_CHAR  "Range, Readings"
 typedef struct
 {
     short Count[100];
