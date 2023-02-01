@@ -2,6 +2,7 @@
 
 #include "test/catch.hpp"
 #include "RangeCheck.h"
+#include "GetRangeData.h"
 
 TEST_CASE("Range readings checking with 2 array of data") {
   char output[100];

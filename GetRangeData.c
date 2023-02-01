@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "RangeCheck.h"
+#include "GetRangeData.h"
 
 void getRangeData(short* ArrData, short ArrSize, char* buff)
 {
