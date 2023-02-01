@@ -10,7 +10,7 @@ void getRangeData(short* ArrData, short ArrSize, char* buff)
 
     memset(printData, 0, 200);
 
-    sprintf(printData,"%s  ",HEADER_CHAR);
+    sprintf(printData,"%s\n",HEADER_CHAR);
     if((ArrData != NULL) && (ArrSize > 0))
     {
         readRangeData = drivenRangeCheck(ArrData,ArrSize);
@@ -24,17 +24,17 @@ void ConvertRangeOutString(st_RangeCount readRangeData,char* strVal)
     char rangeInfo[20];
     short i =0;
 
-    while(i < readRangeData.countSize)
+    while(i <= readRangeData.countSize)
     {
         memset(rangeInfo,0,20);
         if(readRangeData.Count[i] > 1)
         {
-            sprintf(rangeInfo,"%d-%d, %d  ", readRangeData.OutArray[0][0], 
+            sprintf(rangeInfo,"%d-%d, %d\n", readRangeData.OutArray[0][0], 
                             readRangeData.OutArray[0][readRangeData.Count[i]-1], readRangeData.Count[i]);
         }
         else
         {
-            sprintf(rangeInfo,"%d, %d  ", readRangeData.OutArray[0][0], readRangeData.Count[i]);
+            sprintf(rangeInfo,"%d, %d\n", readRangeData.OutArray[0][0], readRangeData.Count[i]);
         }
         strncpy(strVal,rangeInfo,strlen(rangeInfo));
         strVal += strlen(rangeInfo);
