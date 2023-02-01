@@ -39,15 +39,14 @@ TEST_CASE("Range readings checking with 7 array of data with multiple range chec
   short k = 0;
   getRangeData(arrData, 2, output);
   REQUIRE(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
-  memset(output, 0, 100);
-  st_RangeCount output = drivenRangeCheck(arrData,7);
-  REQUIRE(output.Count[0] == 4);
-  REQUIRE(output.Count[1] == 3);
-  for(short i= 0;i<output.countSize;i++)
+  st_RangeCount outputRange = drivenRangeCheck(arrData,7);
+  REQUIRE(outputRange.Count[0] == 4);
+  REQUIRE(outputRange.Count[1] == 3);
+  for(short i= 0;i<outputRange.countSize;i++)
   {
-    for(short j=0;j<output.Count[i];j++)
+    for(short j=0;j<outputRange.Count[i];j++)
     {
-      REQUIRE(output.OutArray[i][j] == arrData[k]);
+      REQUIRE(outputRange.OutArray[i][j] == arrData[k]);
       k++;
     }
   }
