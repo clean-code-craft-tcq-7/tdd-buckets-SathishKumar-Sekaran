@@ -38,6 +38,7 @@ TEST_CASE("Range readings checking with 7 array of data with multiple range chec
   short k = 0;
   getRangeData(arrData, 2, output);
   REQUIRE(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
+  memset(output, 0, 100);
   st_RangeCount output = drivenRangeCheck(arrData,7);
   REQUIRE(output.Count[0] == 4);
   REQUIRE(output.Count[1] == 3);
@@ -87,7 +88,6 @@ TEST_CASE("Range readings checking with 7 array and one range value") {
   char output[100];
   memset(output, 0, 100);
   short arrData[] = {3,3,5,4,10,20,12};
-  short k = 0;
   getRangeData(arrData, 2, output);
   REQUIRE(strcmp(output,"Range, Readings\n3-5, 4\n10, 1\n12, 1\n20, 1\n") == 0);
 }

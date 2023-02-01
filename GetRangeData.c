@@ -21,13 +21,22 @@ void getRangeData(short* ArrData, short ArrSize, char* buff)
 void ConvertRangeOutString(st_RangeCount readRangeData,char* strVal)
 {
     char rangeInfo[20];
-    short i =0, j=0;
+    short i =0;
 
     while(i < readRangeData.countSize)
     {
         memset(rangeInfo,0,20);
-        sprintf(rangeInfo,"%d-%d, %d\n", readRangeData.OutArray[0], readRangeData.OutArray[readRangeData.Count[i]-1], readRangeData.Count[i]);
+        if(readRangeData.Count[i] > 1)
+        {
+            sprintf(rangeInfo,"%d-%d, %d\n", readRangeData.OutArray[0][0], 
+                            readRangeData.OutArray[0][readRangeData.Count[i]-1], readRangeData.Count[i]);
+        }
+        else
+        {
+            sprintf(rangeInfo,"%d, %d\n", readRangeData.OutArray[0][0], readRangeData.Count[i]);
+        }
         strncpy(strVal,rangeInfo,strlen(rangeInfo));
         strVal += strlen(rangeInfo);
+        i++;
     }
 }
