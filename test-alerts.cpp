@@ -119,4 +119,16 @@ TEST_CASE("Read 12 bit ADC value of 0-10 AMPS value with non valid  and vaild ar
 
   adcConverterReadValue(0,10,12,datacnt,3,OutputAmps);
   REQUIRE(OutputAmps[0]== 0);
+  REQUIRE(OutputAmps[1]== 0);
+  REQUIRE(OutputAmps[2]== 7);
+}
+
+TEST_CASE("Read 10 bit ADC value of 0-10 AMPS value") {
+  int datacnt[]= {2000,3000,1000};
+  int OutputAmps[3];
+
+  adcConverterReadValue(0,10,10,datacnt,3,OutputAmps);
+  REQUIRE(OutputAmps[0]== 0);
+  REQUIRE(OutputAmps[1]== 0);
+  REQUIRE(OutputAmps[2]== 10);
 }
