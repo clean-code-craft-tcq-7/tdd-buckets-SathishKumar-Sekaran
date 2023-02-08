@@ -99,7 +99,7 @@ TEST_CASE("Read 12 bit ADC value of 0-10 AMPS value") {
 
 TEST_CASE("Read 12 bit ADC value of 0-10 AMPS value with empty array count") {
   int datacnt[]= {};
-  int OutputAmps[2];
+  int OutputAmps[2] = {0,0};
 
   adcConverterReadValue(0,10,12,datacnt,0,OutputAmps);
   REQUIRE(OutputAmps[0]== 0);
