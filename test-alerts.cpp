@@ -155,8 +155,10 @@ TEST_CASE("Read 10 bit ADC value of -15 to 15 AMPS value") {
 
 TEST_CASE("ADC converter data with range check") {
   int datacnt[]= {1200, 1228, 2047, 1637};
-  short OutputAmps[4];
+  int OutputAmps[4];
   char output[100];
+  short arrayAmps[4];
+  int i=0;
   memset(output, 0, 100);
 
   adcConverterReadValue(0,10,12,datacnt,4,(int*)OutputAmps);
@@ -164,7 +166,10 @@ TEST_CASE("ADC converter data with range check") {
   REQUIRE(OutputAmps[1]== 3);
   REQUIRE(OutputAmps[2]== 5);
   REQUIRE(OutputAmps[3]== 4);
-  getRangeData(OutputAmps, 4, output);
-  printf("%s",output);
+  while(i<4)
+  {
+    arrayAmps[i] = (short)OutputAmps[i];
+  }
+  getRangeData(arrayAmps, 4, output);
   REQUIRE(strcmp(output,"Range, Readings\n3-5, 4\n") == 0);
 }
