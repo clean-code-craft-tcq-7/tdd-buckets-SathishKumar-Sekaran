@@ -31,11 +31,16 @@ void adcConverterReadValue(int minRange,int maxRange,int adcBitRate,int* DataCou
     int Max_differentVal_Amps = maxRange - minRange;
     float out[DataLen];
     int loopcnt = 0;
+    int TotalCnt = 0;
     while(loopcnt<DataLen)
     {
-        out[loopcnt] = (float)Max_differentVal_Amps *(float)((float)DataCount[loopcnt]/(float)PowerOf2(adcBitRate));
-        out[loopcnt] += minRange;
-        outputAmps[loopcnt] = roundOfVal(out[loopcnt]);
+        TotalCnt = PowerOf2(adcBitRate);
+        if(DataCount[loopcnt]<TotalCnt)
+        {
+            out[loopcnt] = (float)Max_differentVal_Amps *(float)((float)DataCount[loopcnt]/(float)TotalCnt);
+            out[loopcnt] += minRange;
+            outputAmps[loopcnt] = roundOfVal(out[loopcnt]);
+        }
         loopcnt++;
     }
 }
