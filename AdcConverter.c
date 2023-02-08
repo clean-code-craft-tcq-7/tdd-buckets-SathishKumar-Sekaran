@@ -41,6 +41,10 @@ void adcConverterReadValue(int minRange,int maxRange,int adcBitRate,int* DataCou
             out[loopcnt] += minRange;
             outputAmps[loopcnt] = roundOfVal(out[loopcnt]);
         }
+        else
+        {
+            outputAmps[loopcnt] = 0;
+        }
         loopcnt++;
     }
 }
