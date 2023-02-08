@@ -112,3 +112,19 @@ TEST_CASE("Read 12 bit ADC value of 0-10 AMPS value with non valid array count")
   adcConverterReadValue(0,10,12,datacnt,1,OutputAmps);
   REQUIRE(OutputAmps[0]== 0);
 }
+
+TEST_CASE("Read 12 bit ADC value of 0-10 AMPS value with non valid array count") {
+  int datacnt[]= {5000};
+  int OutputAmps[2];
+
+  adcConverterReadValue(0,10,12,datacnt,1,OutputAmps);
+  REQUIRE(OutputAmps[0]== 0);
+}
+
+TEST_CASE("Read 12 bit ADC value of 0-10 AMPS value with non valid  and vaild array count") {
+  int datacnt[]= {5000, -3, 3005};
+  int OutputAmps[3];
+
+  adcConverterReadValue(0,10,12,datacnt,3,OutputAmps);
+  REQUIRE(OutputAmps[0]== 0);
+}
