@@ -3,6 +3,7 @@
 #include "test/catch.hpp"
 #include "RangeCheck.h"
 #include "GetRangeData.h"
+#include "AdcConverter.h"
 
 TEST_CASE("Range readings checking with 2 array of data") {
   char output[100];
@@ -82,4 +83,16 @@ TEST_CASE("Range readings checking with 7 array and one range value") {
   short arrData[] = {3,3,5,4,10,20,12};
   getRangeData(arrData, 7, output);
   REQUIRE(strcmp(output,"Range, Readings\n3-5, 4\n10, 1\n12, 1\n20, 1\n") == 0);
+}
+
+
+//Test case for ADC converter
+
+TEST_CASE("Read 12 bit ADC value of 0-10 AMPS value") {
+  int datacnt[]= {2000,3000};
+  int OutputAmps[2];
+
+  adcConverterReadValue(0,10,12,datacnt,2,OutputAmps);
+  REQUIRE(OutputAmps[0]== 5);
+  REQUIRE(OutputAmps[1]== 7);
 }
