@@ -35,7 +35,7 @@ void adcConverterReadValue(int minRange,int maxRange,int adcBitRate,int* DataCou
     while(loopcnt<DataLen)
     {
         TotalCnt = PowerOf2(adcBitRate);
-        if(DataCount[loopcnt]<TotalCnt)
+        if((DataCount[loopcnt]<TotalCnt) && (DataCount[loopcnt]<0))
         {
             out[loopcnt] = (float)Max_differentVal_Amps *(float)((float)DataCount[loopcnt]/(float)TotalCnt);
             out[loopcnt] += minRange;
