@@ -169,6 +169,7 @@ TEST_CASE("ADC converter data with range check") {
   while(i<4)
   {
     arrayAmps[i] = (short)OutputAmps[i];
+    i++;
   }
   getRangeData(arrayAmps, 4, output);
   REQUIRE(strcmp(output,"Range, Readings\n3-5, 4\n") == 0);
