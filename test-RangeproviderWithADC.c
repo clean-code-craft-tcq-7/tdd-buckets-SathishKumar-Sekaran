@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 #include "AdcConverter.h"
 #include "RangeCheck.h"
 #include "GetRangeData.h"

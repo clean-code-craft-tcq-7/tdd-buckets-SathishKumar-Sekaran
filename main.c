@@ -4,7 +4,7 @@
 #include "test-alert.h"
 #include "test-RangeproviderWithADC.h"
 
-int main(int argc, char* argv[])
+int main()
 {
     testCases_Alerts();
     testCases_ADC();
