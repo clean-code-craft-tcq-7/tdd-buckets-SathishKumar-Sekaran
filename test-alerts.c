@@ -57,14 +57,14 @@ void testCases_Alerts()
     short k1 = 0;
     getRangeData(arrData4, 7, output);
     assert(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
-    st_RangeCount outputRange = drivenRangeCheck(arrData4,7);
-    assert(outputRange.Count[0] == 4);
-    assert(outputRange.Count[1] == 3);
-    for(short i= 0;i<=outputRange.countSize;i++)
+    st_RangeCount outputRange1 = drivenRangeCheck(arrData4,7);
+    assert(outputRange1.Count[0] == 4);
+    assert(outputRange1.Count[1] == 3);
+    for(short i1= 0;i1<=outputRange1.countSize;i1++)
     {
-      for(short j=0;j<outputRange.Count[i];j++)
+      for(short j1=0;j1<outputRange1.Count[i1];j1++)
       {
-        assert(outputRange.OutArray[i][j] == arrData4[k1]);
+        assert(outputRange1.OutArray[i1][j1] == arrData4[k1]);
         k1++;
       }
     }
