@@ -70,26 +70,4 @@ void testCases_ADC()
     assert(OutputAmps[1]== -3);
     assert(OutputAmps[2]== 13);
   }
-  // ADC converter data with range check
-  {
-    int datacnt[]= {1200, 1228, 2047, 1637};
-    int OutputAmps[4];
-    char output[100];
-    short arrayAmps[4];
-    int i=0;
-    memset(output, 0, 100);
-
-    adcConverterReadValue(0,10,12,datacnt,4,(int*)OutputAmps);
-    assert(OutputAmps[0]== 3);
-    assert(OutputAmps[1]== 3);
-    assert(OutputAmps[2]== 5);
-    assert(OutputAmps[3]== 4);
-    while(i<4)
-    {
-      arrayAmps[i] = (short)OutputAmps[i];
-      i++;
-    }
-    getRangeData(arrayAmps, 4, output);
-    assert(strcmp(output,"Range, Readings\n3-5, 4\n") == 0);
-  }
 }

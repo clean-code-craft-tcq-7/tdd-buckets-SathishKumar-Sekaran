@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "AdcConverter.h"
+#include "RangeCheck.h"
+#include "GetRangeData.h"
 #include "test-RangeproviderWithADC.h"
 
 void test_RangeproviderWithADC()
