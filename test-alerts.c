@@ -6,9 +6,9 @@
 
 void testCases_Alerts()
 {
+  char output[100];
   //Range readings checking with 2 array of data
   {
-    char output[100];
     memset(output, 0, 100);
 
     short arrData[] = {4,5};
@@ -17,7 +17,6 @@ void testCases_Alerts()
   }
   // Range readings checking with 4 array of data with misalign array data
   {
-    char output[100];
     memset(output, 0, 100);
     short arrData[] = {3,5,4};
     getRangeData(arrData, 3, output);
@@ -26,7 +25,6 @@ void testCases_Alerts()
   }
   // Range readings checking with 5 array of data with Same value stored in array
   {
-    char output[100];
     memset(output, 0, 100);
     short arrData[] = {3,5,4,3};
     getRangeData(arrData, 4, output);
@@ -35,7 +33,6 @@ void testCases_Alerts()
   }
   // Range readings checking with 7 array of data with multiple range checks
   {
-    char output[100];
     memset(output, 0, 100);
     short arrData[] = {3,3,5,4,10,11,12};
     short k = 0;
@@ -55,7 +52,6 @@ void testCases_Alerts()
   }
   // Range readings checking with 7 array of data with multiple range checks
   {
-    char output[100];
     memset(output, 0, 100);
     short arrData[] = {3,3,5,4,10,11,12};
     short k = 0;
@@ -75,14 +71,12 @@ void testCases_Alerts()
   }
   // Range readings checking with Empty array with invaild array size
   {
-    char output[100];
     memset(output, 0, 100);
     getRangeData(NULL, 0, output);
     assert(strcmp(output,"Range, Readings\n") == 0);
   }
   //Range readings checking with Empty array of data
   {
-    char output[100];
     memset(output, 0, 100);
     short arrData[2];
     getRangeData(arrData, 0, output);
@@ -90,7 +84,6 @@ void testCases_Alerts()
   }
   // Range readings checking with single array of data
   {
-    char output[100];
     memset(output, 0, 100);
 
     short arrData[] = {5};
@@ -99,7 +92,6 @@ void testCases_Alerts()
   }
   // Range readings checking with 7 array and one range value
   {
-    char output[100];
     memset(output, 0, 100);
     short arrData[] = {3,3,5,4,10,20,12};
     getRangeData(arrData, 7, output);
