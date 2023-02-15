@@ -18,34 +18,34 @@ void testCases_Alerts()
   // Range readings checking with 4 array of data with misalign array data
   {
     memset(output, 0, 100);
-    short arrData[] = {3,5,4};
-    getRangeData(arrData, 3, output);
+    short arrData1[] = {3,5,4};
+    getRangeData(arrData1, 3, output);
     assert(strcmp(output,"Range, Readings\n3-5, 3\n") == 0);
-    assert(drivenRangeCheck(arrData,3).Count[0] == 3);
+    assert(drivenRangeCheck(arrData1,3).Count[0] == 3);
   }
   // Range readings checking with 5 array of data with Same value stored in array
   {
     memset(output, 0, 100);
-    short arrData[] = {3,5,4,3};
-    getRangeData(arrData, 4, output);
+    short arrData2[] = {3,5,4,3};
+    getRangeData(arrData2, 4, output);
     assert(strcmp(output,"Range, Readings\n3-5, 4\n") == 0);
-    assert(drivenRangeCheck(arrData,4).Count[0] == 4);
+    assert(drivenRangeCheck(arrData2,4).Count[0] == 4);
   }
   // Range readings checking with 7 array of data with multiple range checks
   {
     memset(output, 0, 100);
-    short arrData[] = {3,3,5,4,10,11,12};
+    short arrData3[] = {3,3,5,4,10,11,12};
     short k = 0;
-    getRangeData(arrData, 7, output);
+    getRangeData(arrData3, 7, output);
     assert(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
-    st_RangeCount outputRange = drivenRangeCheck(arrData,7);
+    st_RangeCount outputRange = drivenRangeCheck(arrData3,7);
     assert(outputRange.Count[0] == 4);
     assert(outputRange.Count[1] == 3);
     for(short i= 0;i<=outputRange.countSize;i++)
     {
       for(short j=0;j<outputRange.Count[i];j++)
       {
-        assert(outputRange.OutArray[i][j] == arrData[k]);
+        assert(outputRange.OutArray[i][j] == arrData3[k]);
         k++;
       }
     }
@@ -53,19 +53,19 @@ void testCases_Alerts()
   // Range readings checking with 7 array of data with multiple range checks
   {
     memset(output, 0, 100);
-    short arrData[] = {3,3,5,4,10,11,12};
-    short k = 0;
-    getRangeData(arrData, 7, output);
+    short arrData4[] = {3,3,5,4,10,11,12};
+    short k1 = 0;
+    getRangeData(arrData4, 7, output);
     assert(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
-    st_RangeCount outputRange = drivenRangeCheck(arrData,7);
+    st_RangeCount outputRange = drivenRangeCheck(arrData4,7);
     assert(outputRange.Count[0] == 4);
     assert(outputRange.Count[1] == 3);
     for(short i= 0;i<=outputRange.countSize;i++)
     {
       for(short j=0;j<outputRange.Count[i];j++)
       {
-        assert(outputRange.OutArray[i][j] == arrData[k]);
-        k++;
+        assert(outputRange.OutArray[i][j] == arrData4[k1]);
+        k1++;
       }
     }
   }
@@ -78,23 +78,23 @@ void testCases_Alerts()
   //Range readings checking with Empty array of data
   {
     memset(output, 0, 100);
-    short arrData[2];
-    getRangeData(arrData, 0, output);
+    short arrData5[2];
+    getRangeData(arrData5, 0, output);
     assert(strcmp(output,"Range, Readings\n") == 0);
   }
   // Range readings checking with single array of data
   {
     memset(output, 0, 100);
 
-    short arrData[] = {5};
-    getRangeData(arrData, 1, output);
+    short arrData6[] = {5};
+    getRangeData(arrData6, 1, output);
     assert(strcmp(output,"Range, Readings\n5, 1\n") == 0);
   }
   // Range readings checking with 7 array and one range value
   {
     memset(output, 0, 100);
-    short arrData[] = {3,3,5,4,10,20,12};
-    getRangeData(arrData, 7, output);
+    short arrData7[] = {3,3,5,4,10,20,12};
+    getRangeData(arrData7, 7, output);
     assert(strcmp(output,"Range, Readings\n3-5, 4\n10, 1\n12, 1\n20, 1\n") == 0);
   }
 }
